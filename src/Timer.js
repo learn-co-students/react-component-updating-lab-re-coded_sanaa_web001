@@ -11,7 +11,15 @@ class Timer extends Component {
   }
 
   //Your code here
-
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.state.time === nextState.time) {
+      return false
+    }
+    return true
+  }
+componentDidUpdate() {
+    console.log("did update")
+  }
   componentDidMount() {
     this.interval = setInterval(
       this.clockTick,
